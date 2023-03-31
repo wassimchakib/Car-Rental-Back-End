@@ -5,7 +5,7 @@ class UsersController < ApplicationController
     if @user.save
       render json: { message: 'User created successfully' }
     else
-      render json: { error: 'Invalid operation, User was not saved' }
+      render json: { error: @user.errors[:name].first }
     end
   end
 end
