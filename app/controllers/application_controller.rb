@@ -4,7 +4,7 @@ class ApplicationController < ActionController::API
   private
 
   def authenticate
-    secret = ENV['JWT_SECRET_KEY']
+    secret = ENV.fetch('JWT_SECRET_KEY', nil)
     token = request.headers['Authorization']&.split&.last
     begin
       payload = JWT.decode(token, secret, true, algorithm: 'HS256').first
