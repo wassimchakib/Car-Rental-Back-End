@@ -3,4 +3,5 @@ class User < ApplicationRecord
                    length: { in: 3..250, message: 'Must be a string of at least 3 characters' }
 
   has_many :cars
+  has_many :reservations
 end
