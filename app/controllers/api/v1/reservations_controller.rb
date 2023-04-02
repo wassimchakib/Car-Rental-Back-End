@@ -20,19 +20,21 @@ class Api::V1::ReservationsController < ApplicationController
   end
 
   def destroy
-    reservation = Reservation.find(params[:id])
+    reservation = Reservation.find_by(id: params[:id])
 
-    if reservation.destroy
+    if reservation&.destroy
       render json: {
         operation: "reservation with id #{reservation.id} is deleted"
       }, status: :accepted
     else
       render json: {
-        operation: "Couldn't delete reservation with id #{reservation.id}.",
+        operation: "Couldn't delete reservation with id #{params[:id]}.",
         data: {
-          errors: reservation.errors
+          errors: {
+            reservation: 'not found'
+          }
         }
-      }, status: :bad_request
+      }, status: :not_found
     end
   end
 
