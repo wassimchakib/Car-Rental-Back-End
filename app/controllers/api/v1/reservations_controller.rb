@@ -24,7 +24,7 @@ class Api::V1::ReservationsController < ApplicationController
 
     if reservation.destroy
       render json: {
-        operation: "reservation with id #{reservation.id} is deleted",
+        operation: "reservation with id #{reservation.id} is deleted"
       }, status: :accepted
     else
       render json: {
