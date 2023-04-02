@@ -11,5 +11,6 @@ class Car < ApplicationRecord
             numericality: { greater_than: 0, message: 'Price must be greater than 0' }
 
   has_many :images
+  has_one :reservation
   belongs_to :user
 end
