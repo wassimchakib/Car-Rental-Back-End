@@ -92,6 +92,11 @@ GEM
       dotenv (= 2.8.1)
       railties (>= 3.2)
     erubi (1.12.0)
+    factory_bot (6.2.1)
+      activesupport (>= 5.0.0)
+    factory_bot_rails (6.2.0)
+      factory_bot (~> 6.2.0)
+      railties (>= 5.0.0)
     globalid (1.1.0)
       activesupport (>= 5.0)
     i18n (1.12.0)
@@ -128,9 +133,12 @@ GEM
     nio4r (2.5.8)
     nokogiri (1.14.2-arm64-darwin)
       racc (~> 1.4)
+    nokogiri (1.14.2-x64-mingw-ucrt)
+      racc (~> 1.4)
     nokogiri (1.14.2-x86_64-linux)
       racc (~> 1.4)
     pg (1.4.6)
+    pg (1.4.6-x64-mingw-ucrt)
     public_suffix (5.0.1)
     puma (5.6.5)
       nio4r (~> 2.0)
@@ -201,6 +209,8 @@ GEM
     timeout (0.3.2)
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
+    tzinfo-data (1.2023.3)
+      tzinfo (>= 1.0.0)
     websocket-driver (0.7.5)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.5)
@@ -217,6 +227,7 @@ DEPENDENCIES
   capybara
   debug
   dotenv-rails
+  factory_bot_rails
   jwt
   pg (~> 1.1)
   puma (~> 5.0)
@@ -229,7 +240,7 @@ DEPENDENCIES
   tzinfo-data
 
 RUBY VERSION
-   ruby 3.2.0p0
+   ruby 3.2.0
 
 BUNDLED WITH
    2.4.7
