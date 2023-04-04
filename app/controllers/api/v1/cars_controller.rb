@@ -11,6 +11,10 @@ class Api::V1::CarsController < ApplicationController
 
   def create
     @car = Car.new(car_params)
+    @car.images.map do |image|
+      Image.create(url: image, car: @car)
+    end
+    
     if @car.save
       render json: @car, status: :created
     else
@@ -27,6 +31,6 @@ class Api::V1::CarsController < ApplicationController
   private
 
   def car_params
-    params.require(:car).permit(:name, :description, :year, :color, :price, :url, :user_id)
+    params.require(:car).permit(:name, :description, :year, :color, :price, :images, :user_id)
   end
 end
