@@ -3,16 +3,20 @@ default: &default
   encoding: unicode
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   host: localhost
-  username: <%= ENV['RAILS_DATABASE_USER'] %>
-  password: <%= ENV['RAILS_DATABASE_PASSWORD'] %>
+  username: postgres
+  password: "24434"
 
 development:
   <<: *default
   database: car_rental_development
+  username: postgres
+  password: "24434"
 
 test:
   <<: *default
   database: car_rental_test
+  username: postgres
+  password: "24434"
 
 production:
   <<: *default
