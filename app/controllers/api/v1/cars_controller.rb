@@ -22,10 +22,13 @@ class Api::V1::CarsController < ApplicationController
     end
   end
 
-  def destroy
-    @car = Car.find(params[:id])
-    @car.destroy
-    head :no_content
+ def destroy 
+    @car = Car.find_by(id: params[:id])
+    if @car&.destroy
+      render json: { message: 'Car deleted' }, status: :ok
+    else
+      render json: { error: 'Car not found' }, status: :not_found
+    end
   end
 
   private
