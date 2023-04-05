@@ -93,6 +93,11 @@ GEM
       dotenv (= 2.8.1)
       railties (>= 3.2)
     erubi (1.12.0)
+    factory_bot (6.2.1)
+      activesupport (>= 5.0.0)
+    factory_bot_rails (6.2.0)
+      factory_bot (~> 6.2.0)
+      railties (>= 5.0.0)
     globalid (1.1.0)
       activesupport (>= 5.0)
     i18n (1.12.0)
@@ -244,6 +249,7 @@ DEPENDENCIES
   capybara
   debug
   dotenv-rails
+  factory_bot_rails
   jwt
   pg (~> 1.1)
   puma (~> 5.0)
@@ -257,7 +263,7 @@ DEPENDENCIES
   tzinfo-data
 
 RUBY VERSION
-   ruby 3.1.2p20
+   ruby 3.2.0
 
 BUNDLED WITH
    2.4.7
