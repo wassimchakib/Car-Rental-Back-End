@@ -14,7 +14,7 @@ class Api::V1::CarsController < ApplicationController
     @car.images.map do |image|
       Image.create(url: image, car: @car)
     end
-    
+
     if @car.save
       render json: @car, status: :created
     else
@@ -22,7 +22,7 @@ class Api::V1::CarsController < ApplicationController
     end
   end
 
- def destroy 
+  def destroy
     @car = Car.find_by(id: params[:id])
     if @car&.destroy
       render json: { message: 'Car deleted' }, status: :ok
