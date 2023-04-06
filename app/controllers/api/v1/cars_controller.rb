@@ -11,11 +11,15 @@ class Api::V1::CarsController < ApplicationController
 
   def create
     @car = Car.new(car_params)
-    @car.images.map do |image|
-      Image.create(url: image, car: @car)
-    end
-
+    
     if @car.save
+      id = @car.id
+
+      @images = params[:images].map do |image|
+        { url: image, car_id: id }
+      end
+
+      Image.insert_all(@images)
       render json: @car, status: :created
     else
       render json: @car.errors, status: :unprocessable_entity
