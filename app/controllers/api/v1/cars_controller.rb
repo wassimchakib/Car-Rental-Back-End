@@ -11,7 +11,7 @@ class Api::V1::CarsController < ApplicationController
 
   def create
     @car = Car.new(car_params)
-    
+
     if @car.save
       id = @car.id
 
