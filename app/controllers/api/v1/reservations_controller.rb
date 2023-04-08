@@ -2,7 +2,7 @@ class Api::V1::ReservationsController < ApplicationController
   def index
     render json: {
       data: {
-        reservations: Reservation.all
+        reservations: Reservation.all.where(user_id: current_user_id)
       }
     }, status: :ok
   end

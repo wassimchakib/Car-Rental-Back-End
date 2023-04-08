@@ -8,7 +8,6 @@ Rails.application.routes.draw do
 
   namespace :api do
     namespace :v1 do
-      resources :homes, only: [:index]
       resources :reservations, only: [:index, :create, :destroy]
       resources :cars, only: [:index, :create, :show, :destroy]
     end
