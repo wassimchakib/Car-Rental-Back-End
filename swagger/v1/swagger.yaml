@@ -131,6 +131,46 @@ paths:
       responses:
         '200':
           description: successful
+  "/login":
+    post:
+      summary: 'Create a session aka: Generate token'
+      tags:
+      - Users
+      parameters: []
+      responses:
+        '200':
+          description: successful
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                username:
+                  type: string
+                  default: wassim
+              required:
+              - username
+  "/signup":
+    post:
+      summary: Create a new user
+      tags:
+      - Users
+      parameters: []
+      responses:
+        '200':
+          description: successful
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                username:
+                  type: string
+                  default: wassim
+              required:
+              - username
 components:
   securitySchemes:
     bearerAuth:
