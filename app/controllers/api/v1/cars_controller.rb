@@ -1,9 +1,10 @@
 class Api::V1::CarsController < ApplicationController
   # api/v1/cars
   def index
+    list_cars = Car.includes(:images).all.as_json(include: :images)
     render json: {
       data: {
-        cars: Car.all
+        cars: list_cars,
       }
     }, status: :ok
   end
