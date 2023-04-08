@@ -2,6 +2,7 @@ class Car < ApplicationRecord
   validates :name, presence: true, length: { minimum: 3, message: 'Name must have 3 or more characters' }
   validates :year, presence: true
   validates :color, presence: true, allow_blank: true
+  validates :car_type, presence: true
   validates :description,
             presence: true,
             allow_blank: true,

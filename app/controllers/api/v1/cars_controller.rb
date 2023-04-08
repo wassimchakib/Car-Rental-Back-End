@@ -1,5 +1,4 @@
 class Api::V1::CarsController < ApplicationController
-
   # api/v1/cars
   def index
     render json: {
@@ -25,6 +24,7 @@ class Api::V1::CarsController < ApplicationController
           errors: "Couldn't find a car with id: #{params[:id]}"
         }
       }, status: :bad_request
+    end
   end
 
   # api/v1/cars
@@ -61,7 +61,7 @@ class Api::V1::CarsController < ApplicationController
     if @car&.destroy
       render json: { operation: "Car deleted with id #{car.id}" }, status: :accepted
     else
-      render json: { 
+      render json: {
         operation: "Couldn't delete car with id #{params[:id]}.",
         data: {
           errors: {
@@ -75,6 +75,6 @@ class Api::V1::CarsController < ApplicationController
   private
 
   def car_params
-    params.require(:car).permit(:name, :description, :year, :color, :price, :type :images)
+    params.require(:car).permit(:name, :description, :year, :color, :price, :type, :images)
   end
 end
