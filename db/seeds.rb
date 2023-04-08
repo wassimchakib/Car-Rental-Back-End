@@ -282,7 +282,7 @@ reservation2 = Reservation.create(
 )
 
 # Third reservation in New York City between 15/04/2023 to 19/04/2023
-reservation1 = Reservation.create(
+reservation3 = Reservation.create(
   car: car7,
   user: admin,
   city: 'New York City',
