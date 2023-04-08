@@ -260,3 +260,32 @@ car18 = Car.create(
 car18_image1 = Image.create(url: "https://vossen2018.wpenginepowered.com/wp-content/uploads/2021/08/Infiniti-Q50s-Hybrid-Forged-Series-HF-5-%C2%A9-Vossen-Wheels-2021-5-1047x696.jpg", car: car18)
 car18_image2 = Image.create(url: "https://vossen2018.wpenginepowered.com/wp-content/uploads/2021/08/Infiniti-Q50s-Hybrid-Forged-Series-HF-5-%C2%A9-Vossen-Wheels-2021-4-1047x696.jpg", car: car18)
 car18_image3 = Image.create(url: "https://vossen2018.wpenginepowered.com/wp-content/uploads/2021/08/Infiniti-Q50s-Hybrid-Forged-Series-HF-5-%C2%A9-Vossen-Wheels-2021-9-1047x696.jpg", car: car18)
+
+## Add 3 reservations
+
+# First reservation in Mexico City between 02/04/2023 to 04/04/2023
+reservation1 = Reservation.create(
+  car: car15,
+  user: admin,
+  city: 'Mexico City',
+  starting_date: '02-04-2023',
+  ending_date: '04-04-2023'
+)
+
+# Second reservation in Seattle between 07/04/2023 to 11/04/2023
+reservation2 = Reservation.create(
+  car: car5,
+  user: admin,
+  city: 'Seattle',
+  starting_date: '07-04-2023',
+  ending_date: '11-04-2023'
+)
+
+# Third reservation in New York City between 15/04/2023 to 19/04/2023
+reservation1 = Reservation.create(
+  car: car7,
+  user: admin,
+  city: 'New York City',
+  starting_date: '15-04-2023',
+  ending_date: '19-04-2023'
+)

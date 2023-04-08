@@ -4,7 +4,7 @@ class Api::V1::CarsController < ApplicationController
     list_cars = Car.includes(:images).all.as_json(include: :images)
     render json: {
       data: {
-        cars: list_cars,
+        cars: list_cars
       }
     }, status: :ok
   end
