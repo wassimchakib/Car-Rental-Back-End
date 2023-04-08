@@ -131,8 +131,8 @@ describe 'Reservations', type: :request do
         city: 'Walter-Rathenau-Straße 1-13',
         starting_date: '07-04-2023',
         ending_date: '12-04-2023',
-        user_id: user2.id,
-        car_id: car.id
+        car:,
+        user: user1
       )
     end
 

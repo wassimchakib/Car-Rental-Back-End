@@ -15,7 +15,7 @@ class Api::V1::CarsController < ApplicationController
     if car
       render json: {
         data: {
-          cars: Car.find_by(id: params[:id])
+          cars: Car.find_by(id: params[:id]).as_json(include: :images)
         }
       }, status: :ok
     else
