@@ -8,7 +8,7 @@ class Api::V1::ReservationsController < ApplicationController
   end
 
   def create
-    reservation = Reservation.new(reservation_params)
+    reservation = Reservation.new(reservation_params.merge(user_id: current_user_id))
 
     if reservation.save
       render json: {
@@ -28,7 +28,7 @@ class Api::V1::ReservationsController < ApplicationController
   end
 
   def destroy
-    reservation = Reservation.find_by(id: params[:id])
+    reservation = Reservation.find_by(id: params[:id], user_id: current_user_id)
 
     if reservation&.destroy
       render json: {
@@ -49,6 +49,6 @@ class Api::V1::ReservationsController < ApplicationController
   private
 
   def reservation_params
-    params.permit(:starting_date, :user_id, :car_id, :ending_date, :city)
+    params.permit(:starting_date, :car_id, :ending_date, :city)
   end
 end

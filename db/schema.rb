@@ -19,7 +19,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_01_211539) do
     t.text "description"
     t.string "color"
     t.float "price"
-    t.date "year"
+    t.string "year"
+    t.string "type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id", null: false

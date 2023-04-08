@@ -5,7 +5,8 @@ class CreateCars < ActiveRecord::Migration[7.0]
       t.text :description
       t.string :color
       t.float :price
-      t.date :year
+      t.string :year
+      t.string :type
 
       t.timestamps
     end
