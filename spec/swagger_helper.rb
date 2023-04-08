@@ -22,12 +22,27 @@ RSpec.configure do |config|
         version: 'v1'
       },
       paths: {},
+      components: {
+        securitySchemes: {
+          bearerAuth: {
+            type: :http,
+            scheme: :bearer,
+            bearerFormat: 'JWT'
+          }
+        }
+      },
+      tags: [
+        { name: 'Users', description: 'Operations related to users'},
+        { name: 'Cars', description: 'Operations related to cars'},
+        { name: 'Reservations', description: 'Operations related to reservations'},
+      ],
+      security: [{ bearerAuth: [] }],
       servers: [
         {
-          url: 'https://{defaultHost}',
+          url: 'http://{defaultHost}',
           variables: {
             defaultHost: {
-              default: 'www.example.com'
+              default: '127.0.0.1:3000'
             }
           }
         }

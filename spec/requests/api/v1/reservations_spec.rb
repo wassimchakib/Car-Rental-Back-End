@@ -4,7 +4,8 @@ RSpec.describe 'api/v1/reservations', type: :request do
 
   path '/api/v1/reservations' do
 
-    get('list reservations') do
+    get('List all reservations for the current user') do
+      tags 'Reservations'
       response(200, 'successful') do
 
         after do |example|
@@ -18,9 +19,21 @@ RSpec.describe 'api/v1/reservations', type: :request do
       end
     end
 
-    post('create reservation') do
+    post('Add a new reservation') do
+      tags 'Reservations'
       response(200, 'successful') do
-
+        consumes 'application/json'
+        produces 'application/json'
+        parameter name: :reservation, in: :body, schema: {
+          type: :object,
+          properties: {
+            city: { type: :string, default: 'Mexico City'},
+            starting_date: { type: :string, default: '07-04-2023'},
+            ending_date: { type: :string, default: '12-04-2023'},
+            car_id: { type: :number, default: '1'}
+          },
+          required: ["city", "starting_date", "ending_date", "car_id"]
+        }
         after do |example|
           example.metadata[:response][:content] = {
             'application/json' => {
@@ -34,10 +47,10 @@ RSpec.describe 'api/v1/reservations', type: :request do
   end
 
   path '/api/v1/reservations/{id}' do
-    # You'll want to customize the parameter types...
     parameter name: 'id', in: :path, type: :string, description: 'id'
 
-    delete('delete reservation') do
+    delete('Delete specific reservation by {id}') do
+      tags 'Reservations'
       response(200, 'successful') do
         let(:id) { '123' }
 
