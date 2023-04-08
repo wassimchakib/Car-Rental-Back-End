@@ -22,25 +22,36 @@ class Api::V1::CarsController < ApplicationController
       render json: {
         data: {
           cars: car,
-          errors: "Couldn't find a car with #{params[:id]}"
+          errors: "Couldn't find a car with id: #{params[:id]}"
         }
       }, status: :bad_request
   end
 
+  # api/v1/cars
   def create
-    @car = Car.new(car_params)
+    car = Car.new(car_params.merge(user_id: current_user_id))
 
-    if @car.save
-      id = @car.id
+    if car.save
+      id = car.id
 
       @images = params[:images].map do |image|
         { url: image, car_id: id }
       end
 
       Image.insert_all(@images)
-      render json: @car, status: :created
+      render json: {
+        operation: "Car created successfully with id: #{id}",
+        data: {
+          car_id: id
+        }
+      }, status: :created
     else
-      render json: @car.errors, status: :unprocessable_entity
+      render json: {
+        operation: 'Not successful',
+        data: {
+          errors: car.errors
+        }
+      }, status: :bad_request
     end
   end
 
@@ -56,6 +67,6 @@ class Api::V1::CarsController < ApplicationController
   private
 
   def car_params
-    params.require(:car).permit(:name, :description, :year, :color, :price, :images, :user_id)
+    params.require(:car).permit(:name, :description, :year, :color, :price, :images)
   end
 end
