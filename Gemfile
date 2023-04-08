@@ -41,9 +41,7 @@ gem 'rack-cors'
 
 gem 'jwt'
 
-gem 'rswag-api'
-
-gem 'rswag-ui'
+gem 'rswag'
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
@@ -52,7 +50,6 @@ group :development, :test do
   gem 'dotenv-rails'
   gem 'factory_bot_rails'
   gem 'rspec-rails'
-  gem 'rswag-specs'
 end
 
 group :development do
