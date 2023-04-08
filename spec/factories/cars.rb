@@ -12,6 +12,7 @@ FactoryBot.define do
     color { 'white' }
     price { 25_795 }
     year { '05-01-2023' }
+    car_type { 'Sport' }
     association :user, factory: :user
   end
 end

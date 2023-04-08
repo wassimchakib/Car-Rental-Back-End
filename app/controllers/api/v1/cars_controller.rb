@@ -58,7 +58,8 @@ class Api::V1::CarsController < ApplicationController
   # api/v1/cars/{id}
   def destroy
     car = Car.find_by(id: params[:id], user_id: current_user_id)
-    if @car&.destroy
+
+    if car&.destroy
       render json: { operation: "Car deleted with id #{car.id}" }, status: :accepted
     else
       render json: {
@@ -75,6 +76,6 @@ class Api::V1::CarsController < ApplicationController
   private
 
   def car_params
-    params.require(:car).permit(:name, :description, :year, :color, :price, :type, :images)
+    params.require(:car).permit(:name, :description, :year, :color, :price, :car_type, :images)
   end
 end
