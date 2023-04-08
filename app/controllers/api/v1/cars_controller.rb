@@ -1,6 +1,7 @@
 class Api::V1::CarsController < ApplicationController
+
+  # api/v1/cars
   def index
-    @cars = Car.all
     render json: {
       data: {
         cars: Car.all
@@ -8,9 +9,22 @@ class Api::V1::CarsController < ApplicationController
     }, status: :ok
   end
 
+  # api/v1/cars/{id}
   def show
-    @car = Car.find(params[:id])
-    render json: @car
+    car = Car.find_by(id: params[:id])
+    if car
+      render json: {
+        data: {
+          cars: Car.find_by(id: params[:id])
+        }
+      }, status: :ok
+    else
+      render json: {
+        data: {
+          cars: car,
+          errors: "Couldn't find a car with #{params[:id]}"
+        }
+      }, status: :bad_request
   end
 
   def create
