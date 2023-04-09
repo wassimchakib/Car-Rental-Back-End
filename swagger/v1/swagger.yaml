@@ -138,8 +138,8 @@ paths:
       tags:
       - Reservations
       responses:
-        '200':
-          description: successful
+        '202':
+          description: Reservation deleted successfully
         '404':
           description: Reservation not found
   "/login":

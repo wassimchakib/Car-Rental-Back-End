@@ -44,7 +44,7 @@ RSpec.describe 'api/v1/reservations', type: :request do
 
     delete('Delete specific reservation by {id}') do
       tags 'Reservations'
-      response(200, 'successful') do
+      response(202, 'Reservation deleted successfully') do
         let(:id) { '123' }
         run_test!
       end
