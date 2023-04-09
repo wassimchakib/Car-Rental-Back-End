@@ -20,6 +20,9 @@ paths:
       responses:
         '200':
           description: successful
+        '400':
+          description: Operation not successful because of missing arguments or broken
+            data
       requestBody:
         content:
           application/json:
@@ -70,6 +73,8 @@ paths:
       responses:
         '200':
           description: successful
+        '400':
+          description: Car not found
     delete:
       summary: Delete a car by {id}
       tags:
@@ -77,6 +82,8 @@ paths:
       responses:
         '200':
           description: successful
+        '404':
+          description: Car not found
   "/api/v1/reservations":
     get:
       summary: List all reservations for the current user
@@ -93,6 +100,8 @@ paths:
       responses:
         '200':
           description: successful
+        '400':
+          description: Reservation not added due to the broken data
       requestBody:
         content:
           application/json:
@@ -131,6 +140,8 @@ paths:
       responses:
         '200':
           description: successful
+        '404':
+          description: Reservation not found
   "/login":
     post:
       summary: 'Create a session aka: Generate token'
@@ -139,7 +150,9 @@ paths:
       parameters: []
       responses:
         '200':
-          description: successful
+          description: Username logged in successfully
+        '401':
+          description: Invalid username
       requestBody:
         content:
           application/json:
@@ -159,7 +172,9 @@ paths:
       parameters: []
       responses:
         '200':
-          description: successful
+          description: User created successfully
+        '400':
+          description: Username already exists / blank username
       requestBody:
         content:
           application/json:
@@ -190,4 +205,4 @@ servers:
 - url: http://{defaultHost}
   variables:
     defaultHost:
-      default: 127.0.0.1:3000
+      default: localhost:3000
