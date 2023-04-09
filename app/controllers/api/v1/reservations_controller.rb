@@ -1,10 +1,17 @@
 class Api::V1::ReservationsController < ApplicationController
   def index
+    list_reservations = Reservation.includes(car: [:images]).all
+      .where(user_id: current_user_id).as_json(include: { car: {
+                                                 only: %i[
+                                                   name description price
+                                                 ], include: :images
+                                               } })
+
     render json: {
       data: {
-        reservations: Reservation.all.where(user_id: current_user_id).as_json(include: :car)
-      }
-    }, status: :ok
+        reservations: list_reservations
+      }, status: :ok
+    }
   end
 
   def create
