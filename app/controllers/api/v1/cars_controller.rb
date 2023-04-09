@@ -1,7 +1,7 @@
 class Api::V1::CarsController < ApplicationController
   # api/v1/cars
   def index
-    list_cars = Car.includes(:images).all.as_json(include: :images)
+    list_cars = Car.includes(:images).as_json(include: :images)
     render json: {
       data: {
         cars: list_cars
@@ -11,11 +11,11 @@ class Api::V1::CarsController < ApplicationController
 
   # api/v1/cars/{id}
   def show
-    car = Car.find_by(id: params[:id])
+    car = Car.find_by(id: params[:id]).as_json(include: :images)
     if car
       render json: {
         data: {
-          cars: Car.find_by(id: params[:id]).as_json(include: :images)
+          cars: car
         }
       }, status: :ok
     else
