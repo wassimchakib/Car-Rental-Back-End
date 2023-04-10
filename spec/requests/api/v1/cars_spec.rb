@@ -23,7 +23,7 @@ RSpec.describe 'api/v1/cars', type: :request do
     end
     post('Create A Car') do
       tags 'Cars'
-      response(200, 'successful') do
+      response(201, 'Created Car successfully') do
         consumes 'application/json'
         produces 'application/json'
         parameter name: :car, in: :body, schema: {
@@ -56,7 +56,7 @@ RSpec.describe 'api/v1/cars', type: :request do
 
     delete('Delete a car by {id}') do
       tags 'Cars'
-      response(200, 'successful') do
+      response(202, 'Deleted Car successfully') do
         let(:id) { '123' }
         run_test!
       end

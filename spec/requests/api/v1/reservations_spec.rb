@@ -23,7 +23,7 @@ RSpec.describe 'api/v1/reservations', type: :request do
     end
     post('Add a new reservation') do
       tags 'Reservations'
-      response(200, 'successful') do
+      response(201, 'Reservation created successfully') do
         consumes 'application/json'
         produces 'application/json'
         parameter name: :reservation, in: :body, schema: {

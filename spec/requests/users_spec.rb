@@ -4,7 +4,7 @@ RSpec.describe 'users', type: :request do
   path '/signup' do
     post('Create a new user') do
       tags 'Users'
-      response(200, 'User created successfully') do
+      response(201, 'User created successfully') do
         consumes 'application/json'
         produces 'application/json'
         parameter name: :user, in: :body, schema: {
