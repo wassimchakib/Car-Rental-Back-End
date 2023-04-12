@@ -1,10 +1,15 @@
 class Api::V1::CarsController < ApplicationController
   # api/v1/cars
   def index
-    list_cars = Car.includes(:images).as_json(include: :images)
+    list_cars = Car.includes(:images)
+
+    if params[:filter] == 'true'
+      list_cars = list_cars.where(user_id: current_user_id)
+    end
+
     render json: {
       data: {
-        cars: list_cars
+        cars: list_cars.as_json(include: :images)
       }
     }, status: :ok
   end
