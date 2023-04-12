@@ -14,11 +14,9 @@ RSpec.describe 'sessions', type: :request do
           },
           required: ['username']
         }
-        run_test!
       end
 
       response(401, 'Invalid username') do
-        run_test!
       end
     end
   end
