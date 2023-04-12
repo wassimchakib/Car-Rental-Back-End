@@ -147,8 +147,6 @@ paths:
       responses:
         '202':
           description: Reservation deleted successfully
-        '404':
-          description: Reservation not found
   "/login":
     post:
       summary: 'Create a session aka: Generate token'

@@ -14,8 +14,10 @@ RSpec.describe 'users', type: :request do
           },
           required: ['username']
         }
+        run_test!
       end
       response(400, 'Username already exists / blank username') do
+        run_test!
       end
     end
   end
