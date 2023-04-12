@@ -17,6 +17,11 @@ RSpec.describe 'api/v1/cars', type: :request do
   path '/api/v1/cars' do
     get('List of cars') do
       tags 'Cars'
+      parameter name: :filter,
+                in: :query,
+                type: :boolean,
+                description: 'Filter cars',
+                required: false
       response(200, 'successful') do
         run_test!
       end
