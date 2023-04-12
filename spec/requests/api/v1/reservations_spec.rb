@@ -18,7 +18,6 @@ RSpec.describe 'api/v1/reservations', type: :request do
             }
           }
         end
-        run_test!
       end
     end
     post('Add a new reservation') do
@@ -31,10 +30,8 @@ RSpec.describe 'api/v1/reservations', type: :request do
           properties: reservation_properties,
           required: %w[city starting_date ending_date car_id]
         }
-        run_test!
       end
       response(400, 'Reservation not added due to the broken data') do
-        run_test!
       end
     end
   end
@@ -46,10 +43,8 @@ RSpec.describe 'api/v1/reservations', type: :request do
       tags 'Reservations'
       response(202, 'Reservation deleted successfully') do
         let(:id) { '123' }
-        run_test!
       end
       response(404, 'Reservation not found') do
-        run_test!
       end
     end
   end
