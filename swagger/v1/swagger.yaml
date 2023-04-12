@@ -9,6 +9,13 @@ paths:
       summary: List of cars
       tags:
       - Cars
+      parameters:
+      - name: filter
+        in: query
+        description: Filter cars
+        required: false
+        schema:
+          type: boolean
       responses:
         '200':
           description: successful
@@ -18,8 +25,8 @@ paths:
       - Cars
       parameters: []
       responses:
-        '200':
-          description: successful
+        '201':
+          description: Created Car successfully
         '400':
           description: Operation not successful because of missing arguments or broken
             data
@@ -80,8 +87,8 @@ paths:
       tags:
       - Cars
       responses:
-        '200':
-          description: successful
+        '202':
+          description: Deleted Car successfully
         '404':
           description: Car not found
   "/api/v1/reservations":
@@ -98,8 +105,8 @@ paths:
       - Reservations
       parameters: []
       responses:
-        '200':
-          description: successful
+        '201':
+          description: Reservation created successfully
         '400':
           description: Reservation not added due to the broken data
       requestBody:
@@ -171,7 +178,7 @@ paths:
       - Users
       parameters: []
       responses:
-        '200':
+        '201':
           description: User created successfully
         '400':
           description: Username already exists / blank username
