@@ -1,0 +1,18 @@
+databases:
+  - name: my_database
+    databaseName: recipe_app_djmr
+    user: recipe_app_djmr_user
+
+services:
+  - type: web
+    name: car_rental
+    env: ruby
+    buildCommand: "./bin/render-build.sh"
+    startCommand: "bundle exec puma -C config/puma.rb"
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: recipe_app_djmr
+          property: connectionString
+      - key: RAILS_MASTER_KEY
+        sync: false
