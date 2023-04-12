@@ -3,9 +3,7 @@ class Api::V1::CarsController < ApplicationController
   def index
     list_cars = Car.includes(:images)
 
-    if params[:filter] == 'true'
-      list_cars = list_cars.where(user_id: current_user_id)
-    end
+    list_cars = list_cars.where(user_id: current_user_id) if params[:filter] == 'true'
 
     render json: {
       data: {
