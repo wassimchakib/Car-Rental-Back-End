@@ -49,6 +49,7 @@ RSpec.describe 'api/v1/reservations', type: :request do
         run_test!
       end
       response(404, 'Reservation not found') do
+        run_test!
       end
     end
   end
