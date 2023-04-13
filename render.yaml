@@ -1,7 +1,7 @@
 databases:
   - name: car_rental
-    databaseName: car_rental_696v
-    user: car_rental_696v_user
+    databaseName: car_rental_7dog
+    user: car_rental_7dog_user
 
 services:
   - type: web
@@ -12,7 +12,7 @@ services:
     envVars:
       - key: DATABASE_URL
         fromDatabase:
-          name: car_rental_696v
+          name: car_rental_7dog
           property: connectionString
       - key: RAILS_MASTER_KEY
         sync: false
