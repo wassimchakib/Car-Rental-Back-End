@@ -212,4 +212,4 @@ servers:
 - url: https://{defaultHost}
   variables:
     defaultHost:
-      default: localhost:1800
+      default: car-rental-j96f.onrender.com

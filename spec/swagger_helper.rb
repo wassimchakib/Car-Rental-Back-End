@@ -33,7 +33,7 @@ RSpec.configure do |config|
           url: 'https://{defaultHost}',
           variables: {
             defaultHost: {
-              default: ENV.fetch('BASE_URL', nil)
+              default: 'car-rental-j96f.onrender.com'
             }
           }
         }
