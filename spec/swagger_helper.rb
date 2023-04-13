@@ -30,10 +30,10 @@ RSpec.configure do |config|
       security: [{ bearerAuth: [] }],
       servers: [
         {
-          url: 'http://{defaultHost}',
+          url: 'https://{defaultHost}',
           variables: {
             defaultHost: {
-              default: 'localhost:3000'
+              default: ENV.fetch('BASE_URL', nil)
             }
           }
         }
