@@ -8,14 +8,16 @@
   - [🛠 Built With](#built-with)
     - [Tech Stack](#tech-stack)
     - [Key Features](#key-features)
-  - [🚀 Live Demo](#live-demo)
+    - [Frontend](#frontend)
+  - [🚀 Api documentation](#api-documentation)
+  - [🚀 Kanban board](#kanban)
 - [💻 Getting Started](#getting-started)
   - [Setup](#setup)
   - [Prerequisites](#prerequisites)
   - [Install](#install)
   - [Usage](#usage)
-  - [Run tests](#run-tests)
-  - [Deployment](#triangular_flag_on_post-deployment)
+  - [Run tests](#tests)
+  - [Deployment](#deployment)
 - [👥 Authors](#authors)
 - [🔭 Future Features](#future-features)
 - [🤝 Contributing](#contributing)
@@ -53,11 +55,17 @@
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-### Front End app <a name="live-demo"></a>
+### Front End app <a name="frontend"></a>
 
 Click [here](https://github.com/wassimchakib/Car-Rental-Front-End) to access the front end app that was built with react
 
-### Kanban board
+### API Documentation <a name="api-documentation"></a>
+
+- Check [swagger documentation](https://car-rental-j96f.onrender.com/)
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+### Kanban board <a name="kanban"></a>
 
 - Our team consists of 4 members: @Profsain, @wassimchakib, @Kweeka1, and @KIsmoilov
 
@@ -76,14 +84,14 @@ Click [here](https://github.com/wassimchakib/Car-Rental-Front-End) to access the
 
 To get a local copy up and running follow these simple example steps.
 
-### Prerequisites
+### Prerequisites <a name="prerequisites"></a>
 
 In order to run this project you need:
 
 - Install [ruby](https://www.ruby-lang.org/en/) on your computer or run it with docker.
 - Install [Postgrsql](https://www.postgresql.org/).
 
-### Setup
+### Setup <a name="setup"></a>
 
 - First, clone this repository by using the command line :
 
@@ -103,7 +111,7 @@ JWT_SECRET_KEY=JDo6W3hMWX5TVTlVcysxR3tBdkwhdQ
 
 - Rename the file to `.env`
 
-### Install
+### Install <a name="install"></a>
 
 Install this project with:
 
@@ -111,7 +119,7 @@ Install this project with:
 bundle install
 ```
 
-### Usage
+### Usage <a name="usage"></a>
 
 To run the project, follow the next steps:
 
@@ -139,13 +147,21 @@ rails db:seed
 rails s --port=1800
 ```
 
-### Run tests
+### Run tests <a name="tests"></a>
 
 To run tests, execute the following command:
 
 ```sh
 rspec spec --exclude-pattern "spec/requests/swagger/**/*_spec.rb"
 ```
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+### Deployment <a name="deployment"></a>
+
+You can deploy this project on [render](https://render.com/):
+
+- Follow the steps in this [documentation](https://render.com/docs/deploy-rails) to deploy a rails app.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
