@@ -28,7 +28,7 @@
 
 # 📖 Car Rental <a name="about-project"></a>
 
-This is a backend of Car Rental App that allows users to reserve a car, add a new car or delete an existing one.
+**Car Rental** contains the backend code for a Car Rental App, which allows users to reserve a car, add new cars, and delete existing ones. The backend is built using Ruby On Rails and communicates with the frontend of the app to provide a seamless user experience. The backend includes functionality for user authentication and authorization, allowing only authorized users to perform actions such as adding or deleting cars. It also includes a Postgresql database to store information about the cars available for rental, as well as information about user reservations.
 
 ## 🛠 Built With <a name="built-with"></a>
 
@@ -57,6 +57,19 @@ This is a backend of Car Rental App that allows users to reserve a car, add a ne
 
 Click [here](https://github.com/wassimchakib/Car-Rental-Front-End) to access the front end app that was built with react
 
+### Kanban board
+
+- Our team consists of 4 members: @Profsain, @wassimchakib, @Kweeka1, and @KIsmoilov
+
+### Initial state
+![image](https://user-images.githubusercontent.com/50754458/229162056-02f608c7-85bb-4730-83b0-a05739f9ee11.png)
+
+### After 1 iteration (Week)
+![image](https://user-images.githubusercontent.com/50754458/230520114-ea73d082-a77e-4646-8a32-3d757f0c41b9.png)
+
+### Table
+![image](https://user-images.githubusercontent.com/50754458/230520228-763ffb77-8116-49d4-8f83-4e4e755d9449.png)
+
 <!-- GETTING STARTED -->
 
 ## 💻 Getting Started <a name="getting-started"></a>
@@ -67,33 +80,71 @@ To get a local copy up and running follow these simple example steps.
 
 In order to run this project you need:
 
-- Install ruby on your computer or run it with docker
-- Have rails installed on your computer
+- Install [ruby](https://www.ruby-lang.org/en/) on your computer or run it with docker.
+- Install [Postgrsql](https://www.postgresql.org/).
 
 ### Setup
 
-Clone this repository by using the command line :
+- First, clone this repository by using the command line :
 
-- `git clone https://github.com/wassimchakib/Car-Rental-Back-End.git`
+```sh
+git clone https://github.com/wassimchakib/Car-Rental-Back-End.git
+```
+
+- Open `.env.example` file at root directory and fill parameters accordingly
+
+Example:
+
+```shell
+RAILS_DATABASE_USER=user
+RAILS_DATABASE_PASSWORD=12345678
+JWT_SECRET_KEY=JDo6W3hMWX5TVTlVcysxR3tBdkwhdQ
+```
+
+- Rename the file to `.env`
 
 ### Install
 
 Install this project with:
 
-`bundle install`
+```shell
+bundle install
+```
 
 ### Usage
 
-To run the project, execute the following command:
+To run the project, follow the next steps:
 
-`rails s`
+- Create database with the following command:
 
-NB: You need to create an `env` file for your database credentials
-your env file should contain the following
-
+```shell
+rails db:create
 ```
-RAILS_DATABASE_USER=
-RAILS_DATABASE_PASSWORD=
+
+- Apply migrations with the following command:
+
+```shell
+rails db:migrate
+```
+
+- [Optional] Run the following command to fill the database with data:
+
+```shell
+rails db:seed
+```
+
+- Run the app by executing:
+
+```shell
+rails s --port=1800
+```
+
+### Run tests
+
+To run tests, execute the following command:
+
+```sh
+rspec spec --exclude-pattern "spec/requests/swagger/**/*_spec.rb"
 ```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -158,7 +209,7 @@ If you like this project by staring it.
 
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
 
-I would like to thank Microverse for the project.
+I would like to thank Microverse for project inspiration.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
