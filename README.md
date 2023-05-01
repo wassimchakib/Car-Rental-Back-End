@@ -67,6 +67,7 @@ Click [here](https://github.com/wassimchakib/Car-Rental-Front-End) to access the
 
 ### Kanban board <a name="kanban"></a>
 
+- [Link to board](https://github.com/users/wassimchakib/projects/13)
 - Our team consists of 4 members: @Profsain, @wassimchakib, @Kweeka1, and @KIsmoilov
 
 ### Initial state
